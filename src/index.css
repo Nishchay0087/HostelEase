@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gray-50 text-slate-800 antialiased selection:bg-primary-500 selection:text-white dark:bg-slate-900 dark:text-gray-200;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary-600 hover:bg-primary-700 text-white font-medium py-3 px-4 rounded-xl shadow-sm transition-all active:scale-95 disabled:opacity-70 disabled:cursor-not-allowed;
+  }
+  .btn-secondary {
+    @apply bg-white border border-gray-200 text-slate-700 hover:bg-gray-50 font-medium py-3 px-4 rounded-xl shadow-sm transition-all active:scale-95 dark:bg-slate-800 dark:border-slate-700 dark:text-gray-200 dark:hover:bg-slate-700;
+  }
+  .card {
+    @apply bg-white rounded-2xl shadow-sm border border-gray-100 p-4 dark:bg-slate-800 dark:border-slate-700;
+  }
+  .input-field {
+    @apply w-full border-gray-300 rounded-xl shadow-sm focus:ring-primary-500 focus:border-primary-500 transition-all dark:bg-slate-800 dark:border-slate-700 dark:text-gray-100 dark:focus:ring-primary-600 dark:focus:border-primary-600;
+  }
+  .glass-header {
+    @apply bg-white/80 backdrop-blur-md border-b border-gray-100 sticky top-0 z-50 dark:bg-slate-900/80 dark:border-slate-800;
+  }
+  .bottom-nav {
+    @apply bg-white border-t border-gray-100 fixed bottom-0 w-full pb-safe z-50 shadow-[0_-4px_6px_-1px_rgb(0,0,0,0.05)] dark:bg-slate-900 dark:border-slate-800;
+  }
+}
+
+/* Animations */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-slide-up {
+  animation: slideUp 0.3s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* Safe area utilities for mobile */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 16px);
+}
+.pt-safe {
+  padding-top: env(safe-area-inset-top, 16px);
+}
